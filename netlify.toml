@@ -1,0 +1,6 @@
+[build]
+  # Build command ko set karein
+  command = "npm run build"
+  
+  # Publish directory (Vite ke liye 'dist') ko set karein
+  publish = "dist"
