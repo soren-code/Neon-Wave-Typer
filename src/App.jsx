@@ -706,7 +706,7 @@ export default function NeonWaveTyper() {
           {drops.map(drop => {
             const isMatched = inputValue.length > 0 && drop.text.startsWith(inputValue);
             return (
-              <div key={drop.id} className={`absolute px-3 py-1 rounded-full font-mono font-bold text-lg border flex items-center justify-center whitespace-nowrap ${isMatched ? 'bg-cyan-600 text-white border-cyan-300 z-20 scale-110' : 'bg-gray-800 text-gray-300 border-gray-600 z-10'}`} style={{ left: `${drop.x}%`, top: drop.y, transform: `translate(-50%, 0)` }}>
+              <div key={drop.id} className={`className={`absolute px-4 py-2 rounded-full font-mono font-bold text-2xl border flex items-center justify-center whitespace-nowrap ${isMatched ? 'bg-cyan-600 text-white border-cyan-300 z-20 scale-110' : 'bg-gray-800 text-gray-300 border-gray-600 z-10'}`} style={{ left: `${drop.x}%`, top: drop.y, transform: `translate(-50%, 0)` }}>
                 <span className="relative z-10">{isMatched ? <><span className="text-yellow-300">{inputValue}</span><span>{drop.text.substring(inputValue.length)}</span></> : drop.text}</span>
               </div>
             );
