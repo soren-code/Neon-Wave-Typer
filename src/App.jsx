@@ -55,7 +55,15 @@ const generateContent = (mode) => {
     return SENTENCES[Math.floor(Math.random() * SENTENCES.length)];
   } else if (mode === 'numbers') {
     return Math.floor(Math.random() * 10000).toString();
-  } else if (mode === 'mixed') {
+  } 
+  // --- START: NEW ALPHANUMERIC MODE ---
+  else if (mode === 'alphanumeric') {
+    const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+    // Sirf ek random character generate karein
+    return chars.charAt(Math.floor(Math.random() * chars.length)); 
+  }
+  // --- END: NEW ALPHANUMERIC MODE ---
+  else if (mode === 'mixed') {
     let result = '';
     const length = 5 + Math.floor(Math.random() * 5);
     const alpha = "abcdefghijklmnopqrstuvwxyz";
@@ -276,6 +284,9 @@ export default function NeonWaveTyper() {
     let baseRate = 1600; 
     if (mode === 'sentences') baseRate = 3000; 
     if (mode === 'mixed') baseRate = 2000;
+    // --- START: NEW ALPHANUMERIC SETTING ---
+    if (mode === 'alphanumeric') baseRate = 800; // Single character, fast spawn
+    // --- END: NEW ALPHANUMERIC SETTING ---
     
     // --- SCALING LOGIC ---
     let rateFactor = 1;
@@ -295,6 +306,9 @@ export default function NeonWaveTyper() {
   const getFallSpeed = () => {
     let baseSpeed = 0.7; 
     if (mode === 'sentences') baseSpeed = 0.4; 
+    // --- START: NEW ALPHANUMERIC SETTING ---
+    if (mode === 'alphanumeric') baseSpeed = 1.0; // Single character, fast fall
+    // --- END: NEW ALPHANUMERIC SETTING ---
     
     // --- SCALING LOGIC ---
     let speedFactor = 1;
@@ -565,7 +579,7 @@ export default function NeonWaveTyper() {
           
           {/* Mode Tabs */}
           <div className="flex gap-1">
-            {['words', 'sentences', 'numbers', 'mixed'].map(m => (
+            {['alphanumeric', 'words', 'sentences', 'numbers', 'mixed'].map(m => (
               <button key={m} onClick={() => setMode(m)} disabled={gameState === 'playing' && !isPaused} className={getModeTabClass(m)}>{m}</button>
             ))}
           </div>
