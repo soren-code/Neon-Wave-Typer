@@ -447,11 +447,13 @@ export default function NeonWaveTyper() {
       return;
     }
 
+    // ✅ FIX 1: Case-insensitive startsWith check
     const matchingDrop = drops.find(drop => drop.text.toLowerCase().startsWith(val.toLowerCase()));
 
     if (matchingDrop) {
       setInputError(false);
-      if (val.toLowerCase() === matchingDrop.text.toLowerCase()) {
+      // ✅ FIX 2: Case-insensitive full match check
+      if (val.toLowerCase() === matchingDrop.text.toLowerCase()) { 
         setScore(s => s + (matchingDrop.text.length * 10));
         totalCharsTypedRef.current += matchingDrop.text.length;
         setDrops(prev => prev.filter(d => d.id !== matchingDrop.id));
@@ -461,7 +463,6 @@ export default function NeonWaveTyper() {
       setInputError(true);
     }
   };
-
   const startGame = () => {
     setDrops([]);
     setScore(0);
