@@ -66,7 +66,7 @@ const generateContent = (mode) => {
   else if (mode === 'mixed') {
     let result = '';
     const length = 5 + Math.floor(Math.random() * 5);
-    const alpha = "abcdefghijklmnopqrstuvwxyz";
+    const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const nums = "0123456789";
     const all = alpha + nums + SPECIAL_CHARS;
     
@@ -447,11 +447,11 @@ export default function NeonWaveTyper() {
       return;
     }
 
-    const matchingDrop = drops.find(drop => drop.text.startsWith(val));
+    const matchingDrop = drops.find(drop => drop.text.toLowerCase().startsWith(val.toLowerCase()));
 
     if (matchingDrop) {
       setInputError(false);
-      if (val === matchingDrop.text) {
+      if (val.toLowerCase() === matchingDrop.text.toLowerCase()) {
         setScore(s => s + (matchingDrop.text.length * 10));
         totalCharsTypedRef.current += matchingDrop.text.length;
         setDrops(prev => prev.filter(d => d.id !== matchingDrop.id));
