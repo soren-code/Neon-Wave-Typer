@@ -38,8 +38,8 @@ const FINGER_MAP = {
   
   // Right Hand (Shortened for brevity)
   '6': 'R-Index', 'y': 'R-Index', 'h': 'R-Index', 'n': 'R-Index',
-  '7': 'R-Index', 'u': 'R-Index', 'j': 'R-Index', 'm': 'R-Index',
-  '8': 'R-Middle', 'i': 'R-Middle', 'k': 'R-Middle', ',': 'R-Middle', '<': 'R-Middle',
+  '7': 'R-Index', 'u': 'R-Index', 'j': 'R-Index',
+  '8': 'R-Middle', 'i': 'R-Middle', 'k': 'R-Middle', 'm': 'R-Middle', ',': 'R-Middle', '<': 'R-Middle',
   '9': 'R-Ring', 'o': 'R-Ring', 'l': 'R-Ring', '.': 'R-Ring', '>': 'R-Ring',
   '0': 'R-Pinky', 'p': 'R-Pinky', ';': 'R-Pinky', ':': 'R-Pinky', '/': 'R-Pinky', '?': 'R-Pinky',
   '-': 'R-Pinky', '_': 'R-Pinky', '=': 'R-Pinky', '+': 'R-Pinky', '[': 'R-Pinky', '{': 'R-Pinky', ']': 'R-Pinky', '}': 'R-Pinky', "'": 'R-Pinky', '"': 'R-Pinky',
@@ -121,9 +121,9 @@ const HandGuide = ({ nextChar }) => {
            {/* Thumb */}
            <div className={`w-4 h-8 rounded-full mb-[-5px] -rotate-45 -translate-x-2 transition-all duration-200 ${getFingerColor('Thumb', finger)}`}></div>
            {/* Index */}
-           <div className={`w-3 h-16 rounded-full transition-all duration-200 ${getFingerColor('R-Index', finger)}`} title="Index (Y, U, H, J, N, M, 6, 7)"></div>
+           <div className={`w-3 h-16 rounded-full transition-all duration-200 ${getFingerColor('R-Index', finger)}`} title="Index (Y, U, H, J, N, 6, 7)"></div>
            {/* Middle */}
-           <div className={`w-3 h-20 rounded-full transition-all duration-200 ${getFingerColor('R-Middle', finger)}`} title="Middle (I, K, ,, 8)"></div>
+           <div className={`w-3 h-20 rounded-full transition-all duration-200 ${getFingerColor('R-Middle', finger)}`} title="Middle (I, K, M, ,, 8)"></div>
            {/* Ring */}
            <div className={`w-3 h-16 rounded-full transition-all duration-200 ${getFingerColor('R-Ring', finger)}`} title="Ring (O, L, ., 9)"></div>
            {/* Pinky */}
